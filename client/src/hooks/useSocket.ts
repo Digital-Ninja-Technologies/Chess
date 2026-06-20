@@ -1,7 +1,9 @@
 import { useEffect, useRef, useCallback } from 'react';
 import { io, Socket } from 'socket.io-client';
 
-const SOCKET_URL = import.meta.env.DEV ? '/' : '/';
+// In dev, Vite proxies /socket.io → localhost:3001 so '/' works.
+// In production on Netlify, set VITE_SERVER_URL to your Render backend URL.
+const SOCKET_URL = import.meta.env.VITE_SERVER_URL || '/';
 
 let sharedSocket: Socket | null = null;
 
