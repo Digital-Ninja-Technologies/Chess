@@ -1,0 +1,12 @@
+{
+  "name": "chess-app",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "start": "concurrently \"node server/server.js\" \"npm run preview --prefix client\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
