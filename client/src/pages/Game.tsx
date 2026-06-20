@@ -308,6 +308,11 @@ export default function Game({ gameState, onLeave }: GameProps) {
 
   return (
     <div className="game-layout">
+      {/* Move list shown above board on mobile only */}
+      <div className="mobile-moves">
+        <MoveList moves={moveHistory} />
+      </div>
+
       <div className="board-area">
         <PlayerCard
           name={gameState.opponentName}
@@ -402,7 +407,10 @@ export default function Game({ gameState, onLeave }: GameProps) {
           opponentName={gameState.opponentName}
         />
 
-        <MoveList moves={moveHistory} />
+        {/* Move list hidden on mobile (shown above board instead) */}
+        <div className="desktop-moves">
+          <MoveList moves={moveHistory} />
+        </div>
         <Chat messages={messages} onSend={(text) => emit('chat-message', { roomId: gameState.roomId, message: text })} myColor={gameState.playerColor} />
         <button className="leave-btn" onClick={onLeave}>← Leave Game</button>
       </div>

@@ -751,6 +751,10 @@ input { outline: none; font-family: inherit; }
 }
 .leave-btn:hover { border-color: var(--danger); color: var(--danger); }
 
+/* Mobile move list: hidden on desktop, shown above board on mobile */
+.mobile-moves { display: none; }
+.desktop-moves { display: contents; }
+
 /* Responsive */
 @media (max-width: 700px) {
   .game-layout {
@@ -770,4 +774,25 @@ input { outline: none; font-family: inherit; }
   }
 
   .opponent-video { aspect-ratio: 16/9; }
+
+  /* Show moves above board, hide from side panel */
+  .mobile-moves {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    max-height: 120px;
+    overflow: hidden;
+  }
+
+  .mobile-moves .move-list {
+    border-bottom: none;
+    max-height: 120px;
+  }
+
+  .mobile-moves .moves-scroll {
+    max-height: 80px;
+  }
+
+  .desktop-moves { display: none; }
 }
