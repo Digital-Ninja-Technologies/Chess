@@ -2,7 +2,6 @@ services:
   - type: web
     name: chesslive-server
     env: docker
-    rootDir: server
     dockerfilePath: ./Dockerfile
     envVars:
       - key: NODE_ENV
