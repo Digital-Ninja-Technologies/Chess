@@ -1,10 +1,10 @@
 services:
   - type: web
     name: chesslive-server
-    env: docker
-    dockerfilePath: ./Dockerfile
+    env: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node server.js
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 10000
